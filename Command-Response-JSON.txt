@@ -1,0 +1,15 @@
+{
+	"Command":"Hello"
+};
+
+{
+	"Command":"IDLE"
+};
+
+
+{
+	"Command":"FILL LED STRIP COLOR",
+	"Red":"255",
+	"Green":"0",
+	"Blue":"0"	
+};
