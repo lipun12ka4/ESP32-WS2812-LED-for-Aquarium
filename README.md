@@ -15,12 +15,13 @@
 4. LED Driver by NeoPixel for ESP32
 5. Command to set LED Color
 
-	{
+	{  
 		"Command":"FILL LED STRIP COLOR",  
 		"Red":"255",  
 		"Green":"0",  
 		"Blue":"0"  	
-	};   
+	};  
+	
 
 
 #TODO: Update this File
