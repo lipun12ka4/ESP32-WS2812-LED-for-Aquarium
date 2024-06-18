@@ -181,7 +181,8 @@ void uart0_event_task(void *pvParameters)
 
 
 static char UART_Message[1000];
-static char vci_status[1000];
+char global_http_response[1000];
+
 
 void update_status(char message[]){
 
@@ -190,6 +191,10 @@ void update_status(char message[]){
 		strcat(UART_Message, "\n");
 		uart_write_bytes(UART_NUM_0,UART_Message, strlen(UART_Message));
 	}
+	
+	//memset(global_http_response,0, 1000);
+	strcpy(global_http_response, message);
+	
 
 }
 

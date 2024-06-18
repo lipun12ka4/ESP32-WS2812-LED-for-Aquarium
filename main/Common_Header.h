@@ -105,6 +105,7 @@ void test_set_led_color();
 extern bool BT_AT_COMMAND_REPLY_MODE;
 extern TaskHandle_t uart0_comms_task;
 extern TaskHandle_t data_rx_state_machine;
+extern TaskHandle_t http_server_task;
 
 extern FILE *firmware_file;
 extern FILE *log_file;
@@ -122,6 +123,7 @@ enum data_rx_states{
 	IDLE,
 	GO_TO_IDLE_STATE,
 	FILL_LED_STRIP_COLOR,
+	OTA_UPDATE,
 };
 
 extern enum data_rx_states data_rx; //data rx state
@@ -160,6 +162,21 @@ void test_led_strip(void);
 
 extern uint16_t red_amount, green_amount, blue_amount;
 void set_led_strip_clour_fill(uint8_t red, uint8_t green, uint8_t blue);
+
+
+//HTTP Server Stuffs
+void http_server_app_main();
+extern char global_http_response[1000];//global variable for HTTP Response
+
+
+//Wi-Fi OTA Stuffs
+void OTA_Update_app_main();
+extern char OTA_URL[256];
+
+
+//Firmware Version
+extern char firmware_version[100];
+
 
 
 #endif

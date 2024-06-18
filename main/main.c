@@ -8,8 +8,11 @@
 
 TaskHandle_t uart0_comms_task;
 TaskHandle_t data_rx_state_machine;
+TaskHandle_t http_server_task;
 
 enum data_rx_states data_rx = IDLE;
+
+char firmware_version[100] = "ESP32-Aquarium-LED-Version-01.02";
 
 
 
@@ -30,6 +33,11 @@ static void data_rx_task()
 				set_led_strip_clour_fill(red_amount, green_amount, blue_amount);
 				
 				printf("LED Strip Color Set\n");
+				data_rx = IDLE;
+				break;
+				
+			case OTA_UPDATE:
+				OTA_Update_app_main();			
 				data_rx = IDLE;
 				break;
 			
@@ -78,6 +86,9 @@ void say_hello(){
 void app_main(void)
 {
     
+    printf("Running Firmware: %s\n", firmware_version);
+    
+    
 	test_led_strip();
 	vTaskDelay(100/portTICK_PERIOD_MS);
 	//fill_led_strip();
@@ -89,6 +100,11 @@ void app_main(void)
     
     xTaskCreate(data_rx_task, "data_rx_task", 16000, NULL, 20, &data_rx_state_machine);
 	ESP_LOGI("RTOS", "data_rx_task Created");
+	
+	
+	xTaskCreate(http_server_app_main, "http_server_task", 64000, NULL, 15, &http_server_task);
+	ESP_LOGI("RTOS", "http_server_task Created");
+	
 	
 	
 }

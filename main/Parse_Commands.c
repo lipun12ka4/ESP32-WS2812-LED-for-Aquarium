@@ -78,6 +78,12 @@ esp_err_t parse_commands(char *cmd_rx){
 			data_rx = FILL_LED_STRIP_COLOR;
 		}
 		
+		else if(!strcmp(command,"OTA Update")){
+			strcpy(OTA_URL, cJSON_GetObjectItem(root, "URL")->valuestring);
+			
+			data_rx = OTA_UPDATE;
+		}
+		
 		
 
 		

@@ -13,7 +13,7 @@ uint16_t red_amount, green_amount, blue_amount = 0;
 
 #define TAG "neopixel_test"
 #define PIXEL_COUNT  256
-#define NEOPIXEL_PIN GPIO_NUM_5
+#define NEOPIXEL_PIN GPIO_NUM_23
 
 #define MAX(x, y) ((x) > (y) ? (x) : (y))
 #define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))

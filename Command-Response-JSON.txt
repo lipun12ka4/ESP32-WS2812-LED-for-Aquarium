@@ -13,3 +13,9 @@
 	"Green":"0",
 	"Blue":"0"	
 };
+
+
+{
+	"Command":"OTA Update",
+	"URL":""
+};
