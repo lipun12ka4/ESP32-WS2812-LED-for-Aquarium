@@ -9,7 +9,7 @@
 
 enum led_colors led_color = Off;
 
-uint16_t red_amount, green_amount, blue_amount = 0;
+uint8_t red_amount, green_amount, blue_amount = 50;
 
 #define TAG "neopixel_test"
 #define PIXEL_COUNT  256

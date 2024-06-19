@@ -66,22 +66,25 @@ esp_err_t parse_commands(char *cmd_rx){
 			
 			char color_amount[5];
 			strcpy(color_amount, cJSON_GetObjectItem(root, "Red")->valuestring);
-			sscanf(color_amount, "%hu", &red_amount);
+			sscanf(color_amount, "%hhu", &red_amount);
 
 			strcpy(color_amount, cJSON_GetObjectItem(root, "Green")->valuestring);
-			sscanf(color_amount, "%hu", &green_amount);
+			sscanf(color_amount, "%hhu", &green_amount);
 			
 			strcpy(color_amount, cJSON_GetObjectItem(root, "Blue")->valuestring);
-			sscanf(color_amount, "%hu", &blue_amount);
+			sscanf(color_amount, "%hhu", &blue_amount);
 			
 			
 			data_rx = FILL_LED_STRIP_COLOR;
 		}
 		
 		else if(!strcmp(command,"OTA Update")){
-			strcpy(OTA_URL, cJSON_GetObjectItem(root, "URL")->valuestring);
-			
+			strcpy(OTA_URL, cJSON_GetObjectItem(root, "URL")->valuestring);			
 			data_rx = OTA_UPDATE;
+		}
+		
+		else if(!strcmp(command,"Save LED Colors")){	
+			data_rx = SAVE_LED_COLORS_TO_NVS;
 		}
 		
 		

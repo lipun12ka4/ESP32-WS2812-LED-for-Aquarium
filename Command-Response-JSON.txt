@@ -9,9 +9,14 @@
 
 {
 	"Command":"FILL LED STRIP COLOR",
-	"Red":"255",
-	"Green":"0",
-	"Blue":"0"	
+	"Red":"50",
+	"Green":"10",
+	"Blue":"50"
+};
+
+
+{
+	"Command":"Save LED Colors"
 };
 
 

@@ -124,6 +124,7 @@ enum data_rx_states{
 	GO_TO_IDLE_STATE,
 	FILL_LED_STRIP_COLOR,
 	OTA_UPDATE,
+	SAVE_LED_COLORS_TO_NVS,
 };
 
 extern enum data_rx_states data_rx; //data rx state
@@ -160,7 +161,7 @@ extern char es_data[1000];
 void fill_led_strip();
 void test_led_strip(void);
 
-extern uint16_t red_amount, green_amount, blue_amount;
+extern uint8_t red_amount, green_amount, blue_amount;
 void set_led_strip_clour_fill(uint8_t red, uint8_t green, uint8_t blue);
 
 
